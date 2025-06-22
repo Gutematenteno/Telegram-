@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body { text-align: center; padding: 20px; font-family: sans-serif; }
+    button { background: blue; color: white; padding: 10px 20px; border: none; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Welcome, <span id="name"></span>!</h2>
+  <p>This is your Mini App 😎</p>
+  <button onclick="Telegram.WebApp.sendData('Hello from Mini App')">Send to Bot</button>
+
+  <script>
+    const user = Telegram.WebApp.initDataUnsafe.user;
+    document.getElementById("name").innerText = user?.first_name || "User";
+    Telegram.WebApp.expand();
+  </script>
+</body>
+</html>
